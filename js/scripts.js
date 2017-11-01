@@ -1,5 +1,6 @@
+
 //business logic
-var pigDice = diceRoll(1, 6);
+var diceRolls = [];
 
 function diceRoll(min, max) {
   min = Math.ceil(min);
@@ -12,21 +13,16 @@ function diceRoll(min, max) {
 $(document).ready(function() {
   $("#playerRoll").click(function(event) {
   event.preventDefault();
-
-
-  $(".die-display").append(pigDice);
+  var pigDice = diceRoll(1, 6);
+  if (diceRolls.length <=1) {
+  diceRolls.push(pigDice);
+  console.log(diceRolls);
+} else {
+    alert("Your turn is up!");
+}
+  // $(".die-display").append(diceRolls);
   });
 });
-
-
-
-
-
-
-
-
-
-
 
 
 
