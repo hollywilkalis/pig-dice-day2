@@ -1,5 +1,8 @@
 //business logic
 
+var roundScoresP1 = [];
+var roundScoresP2 = [];
+
 function Player(name) {
   this.name = name;
   this.totalScore;
@@ -26,7 +29,7 @@ var diceRollsP2 = [];
 $(document).ready(function() {
   $("#player1Roll").click(function(event) {
   event.preventDefault();
-  var Player2Total = diceRollsP2.splice(0,2)
+  var player2TurnTotal = diceRollsP2.splice(0,2);
   var pigDice = diceRoll(1, 6);
   if (diceRollsP1.length <=1) {
     if ((pigDice === 1) && (diceRollsP1.length = 0)) {
@@ -39,15 +42,17 @@ $(document).ready(function() {
     };
   } else {
         alert("Player 1, Your turn is up!");
-        console.log("P2 Total" + Player2Total)
+        console.log("P2 Total" + player2TurnTotal);
+        console.log("roundScoreP2" + roundScoresP2);
   };
+  roundScoresP2.concat(player2TurnTotal);
   console.log(diceRollsP1);
    // $(".die-display").append(diceRolls);
  });
 
   $("#player2Roll").click(function(event) {
   event.preventDefault();
-  var Player1Total = diceRollsP1.splice(0,2);
+  var player1TurnTotal = diceRollsP1.splice(0,2);
   var pigDice = diceRoll(1, 6);
   if (diceRollsP2.length <=1) {
     if ((pigDice === 1) && (diceRollsP2.length = 0)) {
@@ -62,7 +67,9 @@ $(document).ready(function() {
     alert("player2 your turn is done!")
   };
   console.log(diceRollsP2);
-  console.log("P1 Total" + Player1Total);
+  roundScoresP1.concat(player1TurnTotal);
+  console.log("P1 Total" + player1TurnTotal);
+  console.log("roundScoreP1" + roundScoresP1);
   // $(".die-display").append(diceRolls);
   });//close player2Roll click function
 });//close document ready function
