@@ -1,24 +1,23 @@
 //business logic
+function gamePlay(somethings) {
+  roundScoresP1 = singleTurn;
 
-
-
-function Player(name, roll, turn, total) {
-  this.name = name;
-  this.roll = pigDice
-  this.turn;
-  this.totalScore;
 }
 
-// function Turn {
-//   this.roll1 = roll1 value
-//   this.roll2 = roll2 value
-//   var function()- if either roll is a 1, set roll score to 0
-//                     else add roll1 + roll2
-//
-// }
+var roundScoresP1 = [];
+var roundScoresP2 = [];
 
-var diceRollsP1 = [];
-var diceRollsP2 = [];
+function Player(name) {
+  this.playerName = playerName;
+  this.turnScore = turnScore
+  this.totalScore;
+  this.setTotalScore();
+}
+
+Player.prototype.setTotalScore = function(roll1, roll2) {
+
+}
+
 
 function diceRoll(min, max) {
   min = Math.ceil(min);
@@ -26,7 +25,24 @@ function diceRoll(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+var pigDice = diceRoll(1, 6);
+alert(pigDice);
 
+var diceRolls123 = [];
+
+var turnTurn = function singleTurn() {
+  if (diceRolls123.length <=1) {
+  if ((pigDice === 1) && (diceRolls123.length = 0)) {
+      diceRolls123.push(0,0);
+    } else if ((pigDice === 1) && (diceRolls123.length = 1)) {
+      diceRolls123.shift();
+      diceRolls123.push(0,0);
+    } else if (diceRolls123.length <=1) {
+      diceRolls123.push(pigDice);
+    }
+  };
+  return diceRolls123;
+}
 
 
 //user interface logic
@@ -34,43 +50,28 @@ function diceRoll(min, max) {
 $(document).ready(function() {
   $("#player1Roll").click(function(event) {
   event.preventDefault();
+  function diceRoll(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
   var pigDice = diceRoll(1, 6);
-  if (diceRollsP1.length <=1) {
-  diceRollsP1.push(pigDice);
-  console.log(diceRollsP1);
-} else {
-    alert("Your turn is up!");
-}
-});
-});
-//   // $(".die-display").append(diceRolls);
-//   });
-//   $("#player2Roll").click(function(event) {
-//   event.preventDefault();
-//   var pigDice = diceRoll(1, 6);
-//   if (diceRollsP2.length <=1) {
-//   diceRollsP2.push(pigDice);
-//   console.log(diceRollsP2);
-// } else {
-//     alert("Your turn is up!");
-// }
-//   // $(".die-display").append(diceRolls);
-//   });
-// });
+  alert(pigDice);
 
+  var diceRolls123 = [];
 
-
-
-
-
-
-
-
-// function getRandomIntInclusive(min, max) {
-//   min = Math.ceil(min);
-//   max = Math.floor(max);
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-//   }
-//
-// var pigDice = getRandomIntInclusive(1, 6);
-// alert(pigDice);
+  var playPlayPlay = function () {if (diceRolls123.length <=1) {
+    if ((pigDice === 1) && (diceRolls123.length = 0)) {
+        diceRolls123.push(0,0);
+      } else if ((pigDice === 1) && (diceRolls123.length = 1)) {
+        diceRolls123.shift();
+        diceRolls123.push(0,0);
+      } else if (diceRolls123.length <=1) {
+        diceRolls123.push(pigDice);
+      }
+    };
+  alert("array" + diceRolls123);
+    }
+  });//close player2Roll click function
+});//close document ready function

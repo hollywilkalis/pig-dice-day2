@@ -12,10 +12,22 @@
       <div class="jumbotron">
         <h1>Pig Dice</h1>
       </div>
+      <form>
+        <div class="form-group">
+          <label for="player1name">Name of Player 1</label>
+          <input type="text" class="form-control" id="player1name" placeholder="Player 1 Name">
+        </div>
+        <div class="form-group">
+          <label for="player2name">Name of Player 2</label>
+          <input type="text" class="form-control" id="player2name" placeholder="Player 2 Name">
+        </div>
+        <button class="btn btn-primary" type="submit" id="startgame">Start the Game</button>
+      </form>
       <button class="btn btn-success" id="player1Roll">Player 1: Roll the die!</button>
       <button class="btn btn-info" id="player2Roll">Player 2: Roll the die!</button>
       <div class="die-display">
         <h2>Your Roll Score:</h2>
+        <span class=player1name></span>, <span class=player2name></span>
         <p><span class="die-score"></span></p>
       </div>
 
