@@ -27,7 +27,7 @@ Player.prototype.calculateScore = function() {
 } //takes array from singleTurn, converts it to a single value
 
 Player.prototype.calculateTotalScore = function() {
-  var totalScore = turnValue.reduce(function(sum, value) {
+  var totalScore = bigScore.reduce(function(sum, value) {
     return sum + value;
   }, 0);
   return totalScore;
@@ -70,35 +70,38 @@ $(document).ready(function() {
 
   $("#player1Roll").click(function(event) {
     event.preventDefault();
-    turnValue = singleTurn();
-    var player1round = player1.calculateScore(turnValue);
-    console.log("player1round " + player1round);
-    console.log("turnValue " + turnValue);
-    var player1total = player1.calculateTotalScore();
-    console.log("player1total " + player1total);
+    turnValue = singleTurn(); //dice roll
     if (turnValue.length >=2) {
       alert("player 1, your time is over");
-      bigScore = totalValue.push(turnValue);
-      var playerYes = player1.calculateTotalScore(bigScore);
-      turnValue.splice(0,2)
-      console.log("pyes " + playerYes);
-    }
+      };
+    var player1round = player1.calculateScore(turnValue);
+          console.log("player1round " + player1round);
+          console.log("turnValue " + turnValue);
+
+    // var player1total = player1.calculateTotalScore();
+    //       console.log("player1total " + player1total);
+
+    bigScore.push(turnValue.splice(0,2));
+      console.log("BigScore " + bigScore);
+    var player1total = player1.calculateTotalScore(bigScore);
+      console.log("player1total " + player1total);
+
   });//end of player 1 click time
 
 $("#player2Roll").click(function(event) {
   event.preventDefault();
   turnValue = singleTurn();
   var player2round = player2.calculateScore(turnValue);
-  console.log("player2round " + player2round);
-  console.log("turnValue " + turnValue);
+        console.log("player2round " + player2round);
+        console.log("turnValue " + turnValue);
   var player2total = player2.calculateTotalScore();
-  console.log("player2total " + player2total);
+        console.log("player2total " + player2total);
   if (turnValue.length >=2) {
     alert("player 2, your time is over");
     bigScore = totalValue.push(turnValue);
     var playerYes = player2.calculateTotalScore(bigScore);
     turnValue.splice(0,2);
-    console.log("pyes " + playerYes);
+        console.log("pyes " + playerYes);
   }
   });//end of player 2 click time
 
